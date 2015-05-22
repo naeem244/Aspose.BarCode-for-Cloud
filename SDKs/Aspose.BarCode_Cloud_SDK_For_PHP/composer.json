@@ -1,0 +1,23 @@
+{
+    "description": 	"Aspose.BarCode for Cloud is a Cloud API to work with BarCode symbologies. This is the repository for Aspose.BarCode Cloud SDK for PHP. Using this SDK, Aspose.BarCode Cloud APIs can be easily used in PHP applications.",
+    "name": 		"aspose/barcode-sdk-php",
+    "type": 		"library",
+    "keywords" : 	["aspose", "php", "aspose cloud", "barcode"],
+	"homepage": 	"https://github.com/asposebarcodecloud/Aspose.BarCode_Cloud_SDK_For_PHP",
+	"authors": [
+        {
+            "name": 	"Imran Anwar",
+            "email": 	"imranwar@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "ext-curl": "*",
+        "aspose/storage-sdk-php": "1.0.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Aspose": "src/"
+        }
+    }
+}
