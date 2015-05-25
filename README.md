@@ -12,5 +12,5 @@ Aspose.BarCode for Cloud is implemented as a REST API. If you use SDK, it hides 
 
 Directory | Description
 --------- | -----------
-[Java SDK](https://github.com/asposebarcode/Aspose_BarCode_Cloud/tree/master/SDKs/Aspose.BarCode_Cloud_SDK_for_Java)  |  Aspose.BarCode for Cloud Java SDK.
-[PHP SDK](https://github.com/asposebarcode/Aspose_BarCode_Cloud/tree/master/SDKs/Aspose.BarCode_Cloud_SDK_for_PHP)  | Aspose.BarCode for Cloud PHP SDK.
+[Java SDK](https://github.com/asposebarcode/Aspose_BarCode_Cloud/tree/master/SDKs/Aspose.BarCode_Cloud_SDK_for_Java)  |  Aspose.BarCode Cloud SDK for Java.
+[PHP SDK](https://github.com/asposebarcode/Aspose_BarCode_Cloud/tree/master/SDKs/Aspose.BarCode_Cloud_SDK_for_PHP)  | Aspose.BarCode Cloud SDK for PHP.
