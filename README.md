@@ -1,4 +1,4 @@
-# Aspose.BarCode for Cloud Repository
+# Aspose.BarCode for Cloud
 This repository contains examples and SDKs for [Aspose.BarCode for Cloud](http://www.aspose.com/cloud/barcode-api.aspx).
 
 ## Why SDKs?
