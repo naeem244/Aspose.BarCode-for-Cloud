@@ -14,3 +14,11 @@ Directory | Description
 --------- | -----------
 [Java SDK](https://github.com/asposebarcode/Aspose_BarCode_Cloud/tree/master/SDKs/Aspose.BarCode_Cloud_SDK_for_Java)  |  Aspose.BarCode Cloud SDK for Java.
 [PHP SDK](https://github.com/asposebarcode/Aspose_BarCode_Cloud/tree/master/SDKs/Aspose.BarCode_Cloud_SDK_for_PHP)  | Aspose.BarCode Cloud SDK for PHP.
+
+## Resources
+
++ **Website:** [www.aspose.com](http://www.aspose.com)
++ **Product Home:** [Aspose.BarCode for Cloud](http://www.aspose.com/cloud/barcode-api.aspx)
++ **Documentation:** [Aspose.BarCode for Cloud Documentation](http://www.aspose.com/docs/display/barcodecloud/Home)
++ **Forum:** [Aspose.BarCode for Cloud Forum](http://www.aspose.com/community/forums/aspose.barcode-product-family/193/showforum.aspx)
++ **Blog:** [Aspose.BarCode for Cloud Blog](http://www.aspose.com/blogs/aspose-products/aspose-barcode-product-family.html)
