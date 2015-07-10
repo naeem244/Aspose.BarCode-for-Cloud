@@ -242,9 +242,7 @@ try {
   public BarcodeResponseList PostBarcodeRecognizeFromUrlorContent (String type, String checksumValidation, Boolean stripFnc, Integer rotationAngle, String url, File file) {
     Object postBody = null;
     // verify required params are set
-    if(file == null ) {
-       throw new ApiException(400, "missing required params");
-    }
+    
     // create path and map variables
     String resourcePath = "/barcode/recognize/?appSid={appSid}&amp;type={type}&amp;checksumValidation={checksumValidation}&amp;stripFnc={stripFnc}&amp;rotationAngle={rotationAngle}&amp;url={url}";
 	resourcePath = resourcePath.replaceAll("\\*", "").replace("&amp;", "&").replace("/?", "?").replace("toFormat={toFormat}", "format={format}");
@@ -278,10 +276,15 @@ try {
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
-if(contentType.startsWith("multipart/form-data")) {      
-      FormDataMultiPart mp = new FormDataMultiPart();
-      mp.field("file", file, MediaType.MULTIPART_FORM_DATA_TYPE);
-        postBody = mp;
+    if( file!=null){
+       
+       FormDataMultiPart mp = new FormDataMultiPart();
+       mp.field("file", file, MediaType.MULTIPART_FORM_DATA_TYPE);
+         postBody = mp;
+         contentType = "multipart/form-data";
+         
+    }else{
+       contentType = "application/json";
     }
 try {
 		response = apiInvoker.invokeAPI(basePath, resourcePath, "POST", queryParams, postBody, headerParams, formParams, contentType);

@@ -1,6 +1,11 @@
 package com.aspose.barcode.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BarcodeResponseList {
+
+  private  List<Barcode> Barcodes = new ArrayList<Barcode>();
   private String Code = null;
   private String Status = null;
   /**
@@ -39,7 +44,16 @@ public class BarcodeResponseList {
     this.Status = Status;
   }
 
-  @Override
+
+public List<Barcode> getBarcodes() {
+         return Barcodes;
+      }
+
+      public void setBarcodes(List<Barcode> barcodes) {
+         Barcodes = barcodes;
+      }
+
+@Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
     sb.append("class BarcodeResponseList {\n");
