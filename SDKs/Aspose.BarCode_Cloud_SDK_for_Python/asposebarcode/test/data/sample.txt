@@ -1,0 +1,36 @@
+{
+  "BarcodeBuilders": [
+    {
+      "TypeOfBarcode": "string",
+      "Text": "string",
+      "Resolution": {
+        "ResolutionX": 0,
+        "ResolutionY": 0
+      },
+      "DimensionX": 0,
+      "DimensionY": 0,
+      "CodeLocation": "string",
+      "GraphicsUnit": "string",
+      "AutoSize": true,
+      "BarHeight": 0,
+      "ImageHeight": 0,
+      "ImageWidth": 0,
+      "ImageQuality": "string",
+      "RotationAngle": 0,
+      "Margins": {
+        "Left": 0,
+        "Right": 0,
+        "Top": 0,
+        "Bottom": 0
+      },
+      "BackColor": "string",
+      "ForeColor": "string",
+      "CodeTextColor": "string",
+      "BorderColor": "string",
+      "BorderVisible": true,
+      "EnableChecksum": "string"
+    }
+  ],
+  "XStep": 0,
+  "YStep": 0
+}
