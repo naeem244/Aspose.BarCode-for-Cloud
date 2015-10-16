@@ -15,13 +15,16 @@ import string
 import hmac
 import hashlib
 import requests
+import httplib
+import logging
 
 from models import *
 from urlparse import urlparse
+from requests.utils import quote
 
 
 class ApiClient(object):
-    def __init__(self, apiKey=None, appSid=None,apiServer=None):
+    def __init__(self, apiKey=None, appSid=None, debug=False, apiServer='http://api.aspose.com/v1.1'):
         if apiKey == None:
             raise Exception('You must pass an apiKey when instantiating the '
                             'APIClient')
@@ -38,6 +41,15 @@ class ApiClient(object):
         self.cookie = None
         self.defaultHeaders = {}
         self.boundary = 'Somthing'
+        self.debug = debug
+
+        if self.debug == True:
+            httplib.HTTPConnection.debuglevel = 1
+            logging.basicConfig() # you need to initialize logging, otherwise you will not see anything from requests
+            logging.getLogger().setLevel(logging.DEBUG)
+            requests_log = logging.getLogger("requests.packages.urllib3")
+            requests_log.setLevel(logging.DEBUG)
+            requests_log.propagate = True
 
     @property
     def user_agent(self):
@@ -59,11 +71,13 @@ class ApiClient(object):
         :param qry_data: a dictionary which holds query string data e.g {'param1': 'value1', 'param2': 'value2'}
         :return: returns a uri with query string e.g http://api.aspose.com/v1/testurl?param1=value1&param2=value2
         """
+
         del_dict = {}
+
 
         if 'file' in qry_data:
             del qry_data['file']
-
+        
         for (key, val) in qry_data.iteritems():
             if(path.find('{' + key.lower() + '}') >= 0):
                 path = path.replace('{' + key.lower() + '}', val)
@@ -71,8 +85,6 @@ class ApiClient(object):
 
         for (key, val) in del_dict.iteritems():
             del qry_data[key]
-            if key == 'file':
-                del qry_data[key]
 
         path = path.rstrip('/')
 
@@ -92,9 +104,10 @@ class ApiClient(object):
         else:
             url_part_to_sign = url.scheme + "://" + url.netloc + url.path + "?" + url.query
 
-        print "url_part_to_sign" + url_part_to_sign + "apiKey" + apiKey
+        logging.debug("url_part_to_sign" + url_part_to_sign + "apiKey" + apiKey)
         signature = hmac.new(apiKey, url_part_to_sign, hashlib.sha1).digest().encode('base64')[:-1]
         signature = re.sub('[=_-]', '', signature)
+        signature = quote(signature, safe='')
 
         if url.query == "":
             return url.scheme + "://" + url.netloc + url.path + "?signature=" + signature
@@ -105,23 +118,12 @@ class ApiClient(object):
 
     def callAPI(self, resourcePath, method, queryParams, postData, headerParams=None, files=None):
 
-        sentQueryParams = {}
-
-        if queryParams:
-            # Need to remove None values, these should not be sent
-            for param, value in queryParams.items():
-                if value != None:
-                    sentQueryParams[param] = value
-
-        resourcePath = ApiClient.build_uri(resourcePath,sentQueryParams)
-        if sentQueryParams:
-            resourcePath = resourcePath + '&appSid=' + self.appSid
-        else:
-            resourcePath = resourcePath + '?appSid=' + self.appSid
+        resourcePath = resourcePath.replace("{" + "appSid" + "}" , self.appSid)        
+        resourcePath = re.sub("\\{\\w*\\}", "", resourcePath)
 
         url = self.apiServer + resourcePath
         url =    self.sign(url, self.appSid, self.apiKey)
-        print "url:"+url
+        logging.debug(url)
 
         mergedHeaderParams = self.defaultHeaders.copy()
         mergedHeaderParams.update(headerParams)
@@ -152,8 +154,6 @@ class ApiClient(object):
                     headers['Content-length'] = str(len(data))
                 else:
                     data = urllib.urlencode(postData)
-            elif files:
-                headers['Content-type'] = 'multipart/form-data; boundary={0}'.format(self.boundary)
         else:
             raise Exception('Method ' + method + ' is not recognized.')
 
@@ -162,18 +162,20 @@ class ApiClient(object):
         else:
             stream = False
 
-
         if method == 'GET':
                 response = requests.get(url, headers=headers, stream=stream, files=files)
         elif method == 'PUT':
-            response = requests.put(url,data,headers=headers, stream=stream, files=files)
+            if 'file' in files and files['file'] and len(files) == 1:
+                response = requests.put(url,data=files['file'], stream=stream)
+            else:
+                response = requests.put(url,data,headers=headers, stream=stream, files=files)
         elif method == 'POST':
-            response = requests.post(url,data,headers=headers, stream=stream, files=files)
+            if 'file' in files and files['file'] and len(files) == 1:
+                response = requests.post(url,data=files['file'], stream=stream)
+            else:            
+                response = requests.post(url,data,headers=headers, stream=stream, files=files)
         elif method == 'DELETE':
             response = requests.delete(url,data=data,headers=headers, stream=stream, files=files)
-
-        #if 'Set-Cookie' in response.headers:
-            #self.cookie = response.headers['Set-Cookie']
 
         return response
 
@@ -255,6 +257,23 @@ class ApiClient(object):
         ))
         return '\r\n'.join(lines)
 
+    def pre_deserialize(self, obj, objClass, contentType=None):
+        
+        if objClass == 'ResponseMessage':
+            if contentType is not None and "application/json" not in contentType:
+                objClass = eval('ResponseMessage.ResponseMessage')
+                objClass.Status = 'OK'
+                objClass.Code = 200
+                objClass.InputStream = obj
+                return objClass
+
+        if contentType is None or "application/json" not in contentType:
+            raise ApiException(406,"Invalid contentType " + str(contentType))
+            
+        jsonObj = json.loads(obj)
+        logging.debug("JSON Body :: " + str(jsonObj))
+        return self.deserialize(jsonObj, objClass)
+
     def deserialize(self, obj, objClass):
         """Derialize a JSON string into an object.
         Args:
@@ -266,11 +285,17 @@ class ApiClient(object):
 
         # Have to accept objClass as string or actual type. Type could be a
         # native Python type, or one of the model classes.
+        if obj == None:
+            return
+         
         if type(objClass) == str:
             if 'list[' in objClass:
                 match = re.match('list\[(.*)\]', objClass)
                 subClass = match.group(1)
-                return [self.deserialize(subObj, subClass) for subObj in obj]
+                if obj is not None:
+                    return [self.deserialize(subObj, subClass) for subObj in obj]
+                else:
+                    return;
 
             if (objClass in ['int', 'float', 'long', 'dict', 'list', 'str', 'bool', 'datetime']):
                 objClass = eval(objClass)
@@ -285,6 +310,7 @@ class ApiClient(object):
         instance = objClass()
 
         for attr, attrType in instance.swaggerTypes.iteritems():
+            logging.debug(attr + ',' + attrType)
             if obj is not None and instance.attributeMap[attr] in obj and type(obj) in [list, dict]:
                 value = obj[instance.attributeMap[attr]]
                 if attrType in ['str', 'int', 'long', 'float', 'bool']:
@@ -298,6 +324,10 @@ class ApiClient(object):
                     setattr(instance, attr, value)
                 elif (attrType == 'datetime'):
                     setattr(instance, attr, self.__parse_string_to_datetime(value))
+                else:
+                    setattr(instance, attr, self.deserialize(value, attrType))
+            elif obj is not None and instance.attributeMap[attr] not in obj:
+                continue
             elif 'list[' in attrType:
                 match = re.match('list\[(.*)\]', attrType)
                 subClass = match.group(1)
@@ -309,6 +339,7 @@ class ApiClient(object):
                         subValues.append(self.deserialize(subValue, subClass))
                 setattr(instance, attr, subValues)
             else:
+                value = obj[instance.attributeMap[attr]]
                 setattr(instance, attr, self.deserialize(value, attrType))
 
         return instance
@@ -323,6 +354,24 @@ class ApiClient(object):
             return parse(string)
         except ImportError:
             return string
+
+class ApiException(Exception):
+    def __init__(self, code, message):
+        self.code = code
+        self.message = message
+
+    def get_code(self):
+        return self.code
+
+    def get_message(self):
+        return self.message
+
+    def set_code(self, code):
+        self.code = code
+
+    def set_message(self, message):
+        self.message = message
+
 
 class MethodRequest(urllib2.Request):
     def __init__(self, *args, **kwargs):
