@@ -1,18 +1,18 @@
-__author__ = 'imranwar'
+__author__ = 'farooq.sheikh'
 
 from setuptools import setup, find_packages
 
 setup(
-    name = 'asposebarcode',
+    name = 'asposebarcodecloud',
     packages = find_packages(),
     version = '1.0.0',
-    description = 'Aspose Cloud SDK for Python allows you to use Aspose API in your Python applications',
-    author='Imran Anwar',
-    author_email='imranwar@gmail.com',
-    url='https://github.com/asposebarcode/Aspose_BarCode_Cloud/tree/master/SDKs/Aspose.BarCode_Cloud_SDK_for_Python',
+    description = 'Aspose.Barcode Cloud SDK for Python allows you to use Aspose.Barcode APIs in your Python applications',
+    author='Farooq Sheikh',
+    author_email='farooq.sheikh@aspose.com',
+    url='http://www.aspose.com/cloud/barcode-api.aspx',
     install_requires=[
-        'asposestorage',
-    ],
+        'asposestoragecloud',
+    ],    
     classifiers=[
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',

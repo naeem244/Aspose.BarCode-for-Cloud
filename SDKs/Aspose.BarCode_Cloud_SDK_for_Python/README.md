@@ -1,5 +1,5 @@
-# Aspose.BarCode Cloud SDK for Python
-This repository contains Aspose.BarCode Cloud SDK for Python source code. This SDK allows you to work with Aspose.Barcode Cloud REST APIs in your Python applications quickly and easily.
+# Aspose.Barcode Cloud SDK for Python
+This repository contains Aspose.Barcode Cloud SDK for Python source code. This SDK allows you to work with Aspose.Barcode Cloud REST APIs in your Python applications quickly and easily.
 
 <p align="center">
   <a title="Download complete Aspose.BarCode for Cloud source code" href="https://github.com/asposebarcode/Aspose_BarCode_Cloud/archive/master.zip">
