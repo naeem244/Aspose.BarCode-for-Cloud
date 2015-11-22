@@ -1,0 +1,13 @@
+platform :ios, '7.0'
+
+target 'Aspose.Barcode_Cloud_SDK_For_ObjectiveC' do
+	pod 'AFNetworking', '~> 2.5.0'
+	pod 'JSONModel', '~> 1.1'
+	pod 'ISO8601', '~> 0.3'
+	pod 'AsposeStorageCloud'
+end
+
+target 'Aspose.Barcode_Cloud_SDK_For_ObjectiveCTests' do
+	pod 'JSONModel', '~> 1.1'
+	pod 'AsposeStorageCloud'
+end
