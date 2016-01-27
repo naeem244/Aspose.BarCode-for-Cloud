@@ -1,0 +1,31 @@
+{
+  "name": "asposebarcodecloud",
+  "version": "1.0.0",
+  "description": "Aspose.BarCode Cloud SDK for Node.js",
+  "main": "lib/PdfApi.js",
+  "homepage": "http://www.aspose.com/cloud/barcode-api.aspx",
+  "scripts": {
+    "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asposebarcode/Aspose_BarCode_Cloud.git"
+  },
+  "keywords": [
+    "Aspose",
+    "Cloud",
+    "Barcode"
+  ],
+  "engines": {
+    "node": ">= 0.8.x"
+  },
+  "dependencies": {
+    "asposestoragecloud": ">= 1.0.0",
+	 "node-uuid": "~1.4.3",
+     "combined-stream": "~1.0.5",
+      "isstream": "~0.1.2"
+  },
+  "author": "Farooq Sheikh <farooq.sheikh@aspose.com>",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
