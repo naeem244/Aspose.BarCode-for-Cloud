@@ -1,8 +1,8 @@
 # Aspose.BarCode Cloud SDK For Ruby
-This SDK lets you use [Aspose Cloud Slides APIs](http://www.aspose.com/cloud/barcode-api.aspx) in your Ruby web apps.
+This SDK lets you use [Aspose Cloud Barcode APIs](http://www.aspose.com/cloud/barcode-api.aspx) in your Ruby web apps.
 
 ## Installing
-You can simply install Aspose BarCode Cloud SDK with gem:
+You can simply install Aspose Barcode Cloud SDK with gem:
 
 `gem install aspose_barcode_cloud`
 
