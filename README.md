@@ -17,6 +17,8 @@ Directory | Description
 [Python SDK](SDKs/Aspose.BarCode_Cloud_SDK_for_Python)  | Aspose.BarCode Cloud SDK for Python.
 [iOS SDK](SDKs/Aspose.Barcode_Cloud_SDK_For_ObjectiveC) | Aspose.BarCode Cloud SDK for Objective C.
 [Node.js SDK](SDKs/Aspose.BarCode_Cloud_SDK_for_NodeJS) | Aspose.BarCode Cloud SDK for Node.js.
+[Ruby SDK](SDKs/Aspose.BarCode_Cloud_SDK_for_Ruby) | Aspose.BarCode Cloud SDK for Ruby.
+
 ## Resources
 
 + **Website:** [www.aspose.com](http://www.aspose.com)
