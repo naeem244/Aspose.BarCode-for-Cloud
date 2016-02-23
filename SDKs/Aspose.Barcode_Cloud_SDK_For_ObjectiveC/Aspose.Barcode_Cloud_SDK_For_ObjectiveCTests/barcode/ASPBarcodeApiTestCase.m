@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "ASPBarcodeApi.h"
 #import "ASPStorageApi.h"
+#import "AppDelegate.h"
 
 @interface ASPBarcodeApiTestCase : XCTestCase
 @property(nonatomic, strong) ASPBarcodeApi *barcodeApi;
@@ -20,6 +21,8 @@
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
     self.barcodeApi = [[ASPBarcodeApi alloc] init];
+    //Get App key and App SID from https://cloud.aspose.com
+    [ASPApiClient setAppKey:ASPAppKey andAppSID:ASPAppSID];
 }
 
 - (void)tearDown {

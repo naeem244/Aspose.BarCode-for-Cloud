@@ -9,6 +9,10 @@
 #import "AppDelegate.h"
 #import "ASPApiClient.h"
 
+//Get App key and App SID from https://cloud.aspose.com
+NSString *const ASPAppKey = @"";
+NSString *const ASPAppSID = @"";
+
 @interface AppDelegate ()
 
 @end
@@ -19,8 +23,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-#warning Get App key and App SID from https://cloud.aspose.com
-    [ASPApiClient setAppKey:@"" andAppSID:@""];
+    //Get App key and App SID from https://cloud.aspose.com
+    [ASPApiClient setAppKey:ASPAppKey andAppSID:ASPAppSID];
     
     return YES;
 }
