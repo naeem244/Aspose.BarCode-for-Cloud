@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="ee7a2d1d-5161-4e44-b5d6-97f82ee39e9b" name="imran@IMRAN_430 2016-02-24 14:25:37" runUser="IMRAN_430\imran" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="0a57a8f1-bdbe-40a6-b565-abf6e0ef0390">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="imran_IMRAN_430 2016-02-24 14_25_37">
+      <DeploymentItem filename="D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\packages\LinqBridge.1.3.0\lib\net20\LinqBridge.dll" />
+      <DeploymentItem filename="D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\packages\Aspose.Storage-Cloud.1.0.2\lib\net20\Aspose.Storage-Cloud.dll" />
+      <DeploymentItem filename="D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\bin\Debug\Aspose.BarCode-Cloud.exe" />
+      <DeploymentItem filename="D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\packages\Newtonsoft.Json.8.0.2\lib\net20\Newtonsoft.Json.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2016-02-24T14:25:37.4856179+05:00" queuing="2016-02-24T14:25:37.5443757+05:00" start="2016-02-24T14:25:37.5483786+05:00" finish="2016-02-24T14:25:40.2209343+05:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestPutGenerateMultiple" storage="d:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\barcodetest\bin\debug\barcodetest.dll" id="6a54f03e-7715-20a3-adbf-4e1866469c58">
+      <Execution id="535566b8-b999-4d13-895f-8cdfbabf0a87" />
+      <TestMethod codeBase="D:/aspose/swagger/swagger-codegen-2.0.17/aspose/csharp/barcode/BarcodeTest/bin/Debug/BarcodeTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="BarcodeTest.TestBarcodeApi, BarcodeTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestPutGenerateMultiple" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="6a54f03e-7715-20a3-adbf-4e1866469c58" executionId="535566b8-b999-4d13-895f-8cdfbabf0a87" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="535566b8-b999-4d13-895f-8cdfbabf0a87" testId="6a54f03e-7715-20a3-adbf-4e1866469c58" testName="TestPutGenerateMultiple" computerName="IMRAN_430" duration="00:00:02.4476261" startTime="2016-02-24T14:25:37.5503835+05:00" endTime="2016-02-24T14:25:40.2029354+05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="535566b8-b999-4d13-895f-8cdfbabf0a87">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method BarcodeTest.TestBarcodeApi.TestPutGenerateMultiple threw exception: 
+Com.Aspose.Barcode.ApiException: The remote server returned an error: (415) Unsupported Media Type.</Message>
+          <StackTrace>    at Com.Aspose.Barcode.Api.BarcodeApi.PutGenerateMultiple(String name, String format, String folder, Byte[] file) in D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\src\Com\Aspose\Barcode\Api\BarcodeApi.cs:line 692
+   at BarcodeTest.TestBarcodeApi.TestPutGenerateMultiple() in D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\BarcodeTest\BarcodeApiTest.cs:line 264
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

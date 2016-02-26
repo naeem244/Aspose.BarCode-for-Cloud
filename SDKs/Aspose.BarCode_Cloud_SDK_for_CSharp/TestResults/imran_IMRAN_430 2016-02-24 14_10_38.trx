@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="5abac77b-d486-4e74-8c37-42c03ada75b5" name="imran@IMRAN_430 2016-02-24 14:10:38" runUser="IMRAN_430\imran" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="0a57a8f1-bdbe-40a6-b565-abf6e0ef0390">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="imran_IMRAN_430 2016-02-24 14_10_38">
+      <DeploymentItem filename="D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\packages\LinqBridge.1.3.0\lib\net20\LinqBridge.dll" />
+      <DeploymentItem filename="D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\packages\Aspose.Storage-Cloud.1.0.2\lib\net20\Aspose.Storage-Cloud.dll" />
+      <DeploymentItem filename="D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\bin\Debug\Aspose.BarCode-Cloud.exe" />
+      <DeploymentItem filename="D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\packages\Newtonsoft.Json.8.0.2\lib\net20\Newtonsoft.Json.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2016-02-24T14:10:38.0588826+05:00" queuing="2016-02-24T14:10:38.1434050+05:00" start="2016-02-24T14:10:38.1494061+05:00" finish="2016-02-24T14:10:40.1198835+05:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestPostGenerateMultiple" storage="d:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\barcodetest\bin\debug\barcodetest.dll" id="b7e9b6d9-b85d-486c-7233-431718543a26">
+      <Execution id="61767998-8a84-4950-bc30-6dbdace43cb2" />
+      <TestMethod codeBase="D:/aspose/swagger/swagger-codegen-2.0.17/aspose/csharp/barcode/BarcodeTest/bin/Debug/BarcodeTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="BarcodeTest.TestBarcodeApi, BarcodeTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestPostGenerateMultiple" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="b7e9b6d9-b85d-486c-7233-431718543a26" executionId="61767998-8a84-4950-bc30-6dbdace43cb2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="61767998-8a84-4950-bc30-6dbdace43cb2" testId="b7e9b6d9-b85d-486c-7233-431718543a26" testName="TestPostGenerateMultiple" computerName="IMRAN_430" duration="00:00:01.5981967" startTime="2016-02-24T14:10:38.1524114+05:00" endTime="2016-02-24T14:10:40.0948690+05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="61767998-8a84-4950-bc30-6dbdace43cb2">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;200 (System.String)&gt;. Actual:&lt;200 (System.Int32)&gt;. </Message>
+          <StackTrace>   at BarcodeTest.TestBarcodeApi.TestPostGenerateMultiple() in D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\BarcodeTest\BarcodeApiTest.cs:line 178
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

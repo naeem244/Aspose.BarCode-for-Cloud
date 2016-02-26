@@ -1,0 +1,11 @@
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\BarcodeTest\bin\Debug\BarcodeTest.dll
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\BarcodeTest\bin\Debug\BarcodeTest.pdb
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\BarcodeTest\bin\Debug\Aspose.Storage-Cloud.dll
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\BarcodeTest\bin\Debug\LinqBridge.dll
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\BarcodeTest\bin\Debug\Newtonsoft.Json.dll
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\BarcodeTest\bin\Debug\Newtonsoft.Json.xml
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\BarcodeTest\obj\Debug\BarcodeTest.csprojResolveAssemblyReference.cache
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\BarcodeTest\obj\Debug\BarcodeTest.dll
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\BarcodeTest\obj\Debug\BarcodeTest.pdb
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\BarcodeTest\bin\Debug\Aspose.BarCode-Cloud.exe
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\barcode\BarcodeTest\bin\Debug\Aspose.BarCode-Cloud.pdb
