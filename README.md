@@ -18,7 +18,7 @@ Directory | Description
 [iOS SDK](SDKs/Aspose.Barcode_Cloud_SDK_For_ObjectiveC) | Aspose.BarCode Cloud SDK for Objective C.
 [Node.js SDK](SDKs/Aspose.BarCode_Cloud_SDK_for_NodeJS) | Aspose.BarCode Cloud SDK for Node.js.
 [Ruby SDK](SDKs/Aspose.BarCode_Cloud_SDK_for_Ruby) | Aspose.BarCode Cloud SDK for Ruby.
-[.NET SDK](SDKs/Aspose.BarCode_Cloud_SDK_for_CSharp) | Aspose.BarCode Cloud SDK for Ruby.
+[.NET SDK](SDKs/Aspose.BarCode_Cloud_SDK_for_.NET) | Aspose.BarCode Cloud SDK for .NET.
 
 ## Resources
 
