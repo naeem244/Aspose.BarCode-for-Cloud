@@ -20,6 +20,7 @@ Directory | Description
 [Node.js SDK](SDKs/Aspose.BarCode_Cloud_SDK_for_NodeJS) | Aspose.BarCode Cloud SDK for Node.js.
 [Ruby SDK](SDKs/Aspose.BarCode_Cloud_SDK_for_Ruby) | Aspose.BarCode Cloud SDK for Ruby.
 [.NET SDK](SDKs/Aspose.BarCode_Cloud_SDK_for_.NET) | Aspose.BarCode Cloud SDK for .NET.
+[Perl SDK](SDKs/Aspose.BarCode-Cloud-SDK-for-Perl) | Aspose.BarCode Cloud SDK for Perl.
 
 ## Resources
 
