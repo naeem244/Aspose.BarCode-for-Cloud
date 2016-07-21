@@ -63,24 +63,24 @@ public class ReadBarcodesbyApplyingImageProcessingAlgorithm {
 			// Instantiate Aspose BarCode Cloud API SDK
 			BarcodeApi barcodeApi = new BarcodeApi(apiKey, appSID, true);
 
-			// Set the barcode file name created on server.
+			// Set the barcode file name created on server
 			String name = "sample-barcode.jpeg";
-			
+
 			// The barcode type.
-			// If this parameter is empty, autodetection of all supported types is used.
+			// If this parameter is empty, autodetection of all supported types is used
 			String type = "";
-			
+
 			// Set folder location at cloud storage
 			String folder = "";
 
 			BarcodeReader body = new BarcodeReader();
-			
-			// Set if FNC symbol stripping should be performed. 
+
+			// Set if FNC symbol stripping should be performed.
 			body.setStripFNC(true);
-			
+
 			// Set mode for checksum validation during recognition
 			body.setChecksumValidation(ChecksumValidation.OFF);
-			
+
 			// Set special mode of barcode binarization
 			body.setBinarizationHints(BinarizationHints.ComplexBackground);
 
@@ -90,7 +90,7 @@ public class ReadBarcodesbyApplyingImageProcessingAlgorithm {
 							.getResource("/" + name).toURI()));
 
 			// invoke Aspose.BarCode Cloud SDK API to recognition of a barcode
-			//by apply various available image processing algorithms 
+			// by apply various available image processing algorithms
 			BarcodeResponseList apiResponse = barcodeApi
 					.PutBarcodeRecognizeFromBody(name, type, folder, body);
 
@@ -105,6 +105,7 @@ public class ReadBarcodesbyApplyingImageProcessingAlgorithm {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		// ExEnd:1
 	}
 
 }
