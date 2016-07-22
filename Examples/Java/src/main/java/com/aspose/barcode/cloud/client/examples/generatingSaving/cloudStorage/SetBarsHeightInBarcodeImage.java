@@ -1,4 +1,4 @@
-package com.aspose.barcode.cloud.client.examples.generating_saving.cloudStorage;
+package com.aspose.barcode.cloud.client.examples.generatingSaving.cloudStorage;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,11 +14,11 @@ import com.aspose.barcode.model.SaaSposeResponse;
 import com.aspose.storage.api.StorageApi;
 
 /**
- * This sample code allows you to generate barcode with checksum using Aspose
- * BarCode Cloud API.
+ * This sample code allows you to set height of the bars in the barcode image
+ * using using Aspose BarCode Cloud API.
  * 
  */
-public class GenerateBarcodewithChecksumOption {
+public class SetBarsHeightInBarcodeImage {
 
 	public static void main(String[] args) {
 
@@ -31,7 +31,7 @@ public class GenerateBarcodewithChecksumOption {
 		// output folder
 		String outFolder = "c:\\temp\\";
 
-		InputStream inputStream = GenerateBarcodewithChecksumOption.class
+		InputStream inputStream = SetBarsHeightInBarcodeImage.class
 				.getClassLoader().getResourceAsStream(propFileName);
 		try {
 			if (inputStream != null) {
@@ -53,6 +53,7 @@ public class GenerateBarcodewithChecksumOption {
 		}
 
 		// ExStart:1
+
 		try {
 
 			// Instantiate Aspose.Storage Cloud API SDK
@@ -61,19 +62,19 @@ public class GenerateBarcodewithChecksumOption {
 			// Instantiate Aspose.BarCode Cloud API SDK
 			BarcodeApi barcodeApi = new BarcodeApi(apiKey, appSID, true);
 
-			// Set the barcode file name created on server.
+			// Set the barcode file name created on server
 			String name = "sample-barcode";
 			
-			// Set Text to encode inside barcode.
+			// Set Text to encode inside barcode
 			String text = "AsposeBarCode";
 			
 			// Set Barcode Symbology
-			String type = "Code128";
+			String type = "QR";
 			
 			// Set Generated Barcode Image Format
 			String format = "png";
 			
-			// Set Resolution along X and Y in dpi.
+			// Set Resolution along X and Y in dpi
 			Float resolutionX = 0.0f;
 			Float resolutionY = 0.0f;
 			
@@ -82,19 +83,19 @@ public class GenerateBarcodewithChecksumOption {
 			Float dimensionY = 0.0f;
 			
 			//Set Location, Measurement  of the code
-			String codeLocation = "Above";
+			String codeLocation = "";
 			String grUnit = "mm";
 			
 			// Sets if barcode's size will be updated automatically
 			String autoSize = "true";
 			
-			// Set Height of the barcode
-			Float barHeight = 0.0f;
+			// Height of the bar.
+			Float barHeight = 50.0f;
 			
-			//Set height, Width and quality of the image.
+			//Set height, Width and quality of the image
 			Float imageHeight = 0.0f;
 			Float imageWidth = 0.0f;
-			String imageQuality = "default";			
+			String imageQuality = "";
 			
 			// Set Angle of barcode orientation
 			Float rotAngle = 0.0f;
@@ -105,19 +106,19 @@ public class GenerateBarcodewithChecksumOption {
 			Float leftMargin = 0.0f;
 			Float rightMargin = 0.0f;
 			
-			// Sets if checksum will be added to barcode image.
-			String enableChecksum = "Yes";
+			// Sets if checksum will be added to barcode image
+			String enableChecksum = "";
 			
 			//Set 3rd party cloud storage server (if any)
 			String storage = "";
-
+			
 			// Set folder location at cloud storage
 			String folder = "";
 			
 			File file = null;
 
-			// invoke Aspose.BarCode Cloud SDK API to generate barcode with
-			// checksum and save in cloud storage
+			// invoke Aspose.BarCode Cloud SDK API to generate image with
+			// specific bars height
 			SaaSposeResponse apiResponse = barcodeApi.PutBarcodeGenerateFile(
 					name, text, type, format, resolutionX, resolutionY,
 					dimensionX, dimensionY, codeLocation, grUnit, autoSize,
@@ -126,7 +127,6 @@ public class GenerateBarcodewithChecksumOption {
 					enableChecksum, storage, folder, file);
 
 			if (apiResponse != null && apiResponse.getStatus().equals("OK")) {
-			
 				// download generated barcode from cloud storage
 				com.aspose.storage.model.ResponseMessage storageRes = storageApi
 						.GetDownload(name, null, null);

@@ -1,4 +1,4 @@
-package com.aspose.barcode.cloud.client.examples.managing_recognition.withoutCloudStorage;
+package com.aspose.barcode.cloud.client.examples.managingRecognition.cloudStorage;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,22 +6,15 @@ import java.io.InputStream;
 import java.util.Properties;
 
 import com.aspose.barcode.api.BarcodeApi;
-import com.aspose.barcode.cloud.client.examples.managing_recognition.cloudStorage.ReadBarcodeFromAsposeCloudStorage;
 import com.aspose.barcode.model.Barcode;
-import com.aspose.barcode.model.BarcodeReader;
 import com.aspose.barcode.model.BarcodeResponseList;
-import com.aspose.barcode.model.BinarizationHints;
-import com.aspose.barcode.model.ChecksumValidation;
 import com.aspose.storage.api.StorageApi;
 
 /**
  * This sample code allows you to read barcode using Aspose BarCode Cloud API.
- * You just need to use Aspose.Cells for Cloud API in any language of your
- * choice.
  * 
- * @author Farooq Sheikh
  */
-public class ReadBarcodesWithChecksum {
+public class ReadBarcodeFromAsposeCloudStorage {
 
 	public static void main(String[] args) {
 
@@ -72,28 +65,41 @@ public class ReadBarcodesWithChecksum {
 			//If this parameter is empty, autodetection of all supported types is used.
 			String type = "";
 			
+			//Sets mode for checksum validation during recognition
+			String checksumValidation = "";
+			
+			//Sets if FNC symbol stripping should be performed. 
+			Boolean stripFnc = Boolean.TRUE;
+
+			//Sets recognition of rotated barcode
+			Integer rotationAngle = Integer.MIN_VALUE;
+			
+			//Sets exact number of barcodes to recognize 
+			Integer barcodesCount = Integer.MIN_VALUE;
+			
+			//Set recognition of barcode inside specified Rectangle region
+			Integer rectX = Integer.SIZE;
+			Integer rectY = Integer.SIZE;			
+			Integer rectWidth = Integer.MIN_VALUE;
+			Integer rectHeight = Integer.MIN_VALUE;
+			
+			//Set 3rd party cloud storage server (if any)
+			String storage = "";
+			
+			// Set folder location at cloud storage
 			String folder = "";
 
-			BarcodeReader body = new BarcodeReader();
-
-			// Set if FNC symbol stripping should be performed. 
-			body.setStripFNC(true);
-			
-			// Set mode for checksum validation during recognition
-			body.setChecksumValidation(ChecksumValidation.ON);
-			
-			// Set special mode of barcode binarization
-			body.setBinarizationHints(BinarizationHints.ComplexBackground);
-
 			// upload files to aspose cloud storage
-			storageApi.PutCreate(name, "", "", new File(
-					ReadBarcodesWithChecksum.class.getResource("/" + name)
-							.toURI()));
+			storageApi.PutCreate(name, "", "",
+					new File(ReadBarcodeFromAsposeCloudStorage.class
+							.getResource("/" + name).toURI()));
 
-			// invoke Aspose.BarCode Cloud SDK API to recognition of a barcode
-			// from file on server with parameters in body
-			BarcodeResponseList apiResponse = barcodeApi
-					.PutBarcodeRecognizeFromBody(name, type, folder, body);
+			// invoke Aspose.BarCode Cloud SDK API to read barcode from Aspose
+			// Cloud Storage
+			BarcodeResponseList apiResponse = barcodeApi.GetBarcodeRecognize(
+					name, type, checksumValidation, stripFnc, rotationAngle,
+					barcodesCount, rectX, rectY, rectWidth, rectHeight,
+					storage, folder);
 
 			if (apiResponse != null && apiResponse.getStatus().equals("OK")) {
 
