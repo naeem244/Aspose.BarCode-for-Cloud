@@ -1,4 +1,4 @@
-package com.aspose.barcode.cloud.client.examples.generating_saving.cloudStorage;
+package com.aspose.barcode.cloud.client.examples.generatingSaving.cloudStorage;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,11 +14,11 @@ import com.aspose.barcode.model.SaaSposeResponse;
 import com.aspose.storage.api.StorageApi;
 
 /**
- * This sample code allows you to rotate barcode image with suitable angle using
- * Aspose BarCode Cloud API.
+ * This sample code allows you to create barcode and save image to local disk
+ * using Aspose BarCode Cloud API.
  * 
  */
-public class RotateBarcodeImagewithSuitableAngle {
+public class CreateBarcodeAndSaveAsposeCloudStorage {
 
 	public static void main(String[] args) {
 
@@ -31,7 +31,7 @@ public class RotateBarcodeImagewithSuitableAngle {
 		// output folder
 		String outFolder = "c:\\temp\\";
 
-		InputStream inputStream = RotateBarcodeImagewithSuitableAngle.class
+		InputStream inputStream = CreateBarcodeAndSaveAsposeCloudStorage.class
 				.getClassLoader().getResourceAsStream(propFileName);
 		try {
 			if (inputStream != null) {
@@ -53,43 +53,42 @@ public class RotateBarcodeImagewithSuitableAngle {
 		}
 
 		// ExStart:1
-
 		try {
 
-			// Instantiate Aspose.Storage Cloud API SDK
+			// Instantiate Aspose Storage Cloud API SDK
 			StorageApi storageApi = new StorageApi(apiKey, appSID, true);
 
-			// Instantiate Aspose.BarCode Cloud API SDK
+			// Instantiate Aspose BarCode Cloud API SDK
 			BarcodeApi barcodeApi = new BarcodeApi(apiKey, appSID, true);
 
 			// Set the barcode file name created on server.
-			String name = "sample-barcode";
+			String name = "sample-barcode"; 
 			
 			// Set Text to encode inside barcode.
-			String text = "AsposeBarCode";
+			String text = "AsposeBarCode"; 
 			
 			// Set Barcode Symbology
-			String type = "Code128";
+			String type = "Code128"; 
 			
 			// Set Generated Barcode Image Format
-			String format = "png";
-
+			String format = "jpeg"; 
+			
 			// Set Resolution along X and Y in dpi.
-			Float resolutionX = 0.0f;
-			Float resolutionY = 0.0f;
+			Float resolutionX = 0.0f;			
+			Float resolutionY = 0.0f;			
 			
 			//Set Width and Height of barcode unit
 			Float dimensionX = 0.0f;
 			Float dimensionY = 0.0f;
 			
 			//Set Location, Measurement  of the code
-			String codeLocation = "Above";
-			String grUnit = "mm";
+			String codeLocation = "Below"; 
+			String grUnit = "mm"; 
 			
 			// Sets if barcode's size will be updated automatically
-			String autoSize = "true";
+			String autoSize = "true"; 
 			
-			// Set Height of the bar.
+			 // Height of the bar.
 			Float barHeight = 0.0f;
 			
 			//Set height, Width and quality of the image.
@@ -98,28 +97,28 @@ public class RotateBarcodeImagewithSuitableAngle {
 			String imageQuality = "default";
 			
 			// Set Angle of barcode orientation
-			Float rotAngle = 90f;
-			
+			Float rotAngle = 0.0f; // .
+
 			// Set Margin of image border
-			Float topMargin = 0.0f;
+			Float topMargin = 0.0f; 
 			Float bottomMargin = 0.0f;
-			Float leftMargin = 0.0f;
+			Float leftMargin = 0.0f; 
 			Float rightMargin = 0.0f;
 			
 			// Sets if checksum will be added to barcode image.
-			String enableChecksum = "Yes";
-
+			String enableChecksum = "Yes"; 
+			
 			//Set 3rd party cloud storage server (if any)
-			String storage = "";
+			String storage = ""; // .
 			
 			// Set folder location at cloud storage
-			String folder = "";
+			String folder = ""; 
 			
 			// Set local file (if any)
-			File file = null;
+			File file = null; 
 
-			// invoke Aspose.BarCode Cloud SDK API to generate and rotate
-			// barcode image with suitable angle
+			// invoke Aspose.BarCode Cloud SDK API to create barcode and put in
+			// cloud storage
 			SaaSposeResponse apiResponse = barcodeApi.PutBarcodeGenerateFile(
 					name, text, type, format, resolutionX, resolutionY,
 					dimensionX, dimensionY, codeLocation, grUnit, autoSize,
@@ -128,12 +127,14 @@ public class RotateBarcodeImagewithSuitableAngle {
 					enableChecksum, storage, folder, file);
 
 			if (apiResponse != null && apiResponse.getStatus().equals("OK")) {
+
 				// download generated barcode from cloud storage
 				com.aspose.storage.model.ResponseMessage storageRes = storageApi
 						.GetDownload(name, null, null);
-				InputStream responseStream = storageRes.getInputStream();
-				final Path destination = Paths.get(outFolder + name + "."
-						+ format);
+				//Save response stream to a file 
+				InputStream responseStream = storageRes.getInputStream();				
+				final Path destination = Paths.get(outFolder + name
+						+ "." + format);				
 				Files.copy(responseStream, destination,
 						StandardCopyOption.REPLACE_EXISTING);
 			}

@@ -1,4 +1,4 @@
-package com.aspose.barcode.cloud.client.examples.generating_saving.cloudStorage;
+package com.aspose.barcode.cloud.client.examples.generatingSaving.cloudStorage;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,11 +14,11 @@ import com.aspose.barcode.model.SaaSposeResponse;
 import com.aspose.storage.api.StorageApi;
 
 /**
- * This sample code allows you to set barcode image height, width, and quality
- * along with auto size option using Aspose BarCode Cloud API. 
- * 
+ * This sample code allows you to specify barcode image save format using
+ * Aspose BarCode Cloud API.
+ *   
  */
-public class SetBarcodeImageHeightWidthQualitySettings {
+public class SpecifyBarcodeImageSaveFormat {
 
 	public static void main(String[] args) {
 
@@ -31,7 +31,7 @@ public class SetBarcodeImageHeightWidthQualitySettings {
 		// output folder
 		String outFolder = "c:\\temp\\";
 
-		InputStream inputStream = SetBarcodeImageHeightWidthQualitySettings.class
+		InputStream inputStream = SpecifyBarcodeImageSaveFormat.class
 				.getClassLoader().getResourceAsStream(propFileName);
 		try {
 			if (inputStream != null) {
@@ -72,30 +72,30 @@ public class SetBarcodeImageHeightWidthQualitySettings {
 			String type = "Code128";
 			
 			// Set Generated Barcode Image Format
-			String format = "png";
+			String format = "jpeg";
 			
 			// Set Resolution along X and Y in dpi
-			Float resolutionX = 96.0f;
-			Float resolutionY = 96.0f;
+			Float resolutionX = 1.0f;
+			Float resolutionY = 0.0f;
 			
-			//Set Width and Height of barcode unit
-			Float dimensionX = 0.7f;
-			Float dimensionY = 2.0f;
+			// Set Width and Height of barcode unit
+			Float dimensionX = 0.0f;
+			Float dimensionY = 0.0f;
 			
-			//Set Location, Measurement  of the code
-			String codeLocation = "Above";
+			// Set Location, Measurement  of the code
+			String codeLocation = "";
 			String grUnit = "mm";
 			
-			// Sets if barcode's size will be updated automatically
+			// Set if barcode's size will be updated automatically
 			String autoSize = "true";
 			
-			// Set Height of the bar.
+			// Height of the bar.
 			Float barHeight = 0.0f;
 			
-			//Set height, Width and quality of the image
+			// Set height, Width and quality of the image
 			Float imageHeight = 0.0f;
 			Float imageWidth = 0.0f;
-			String imageQuality = "default";
+			String imageQuality = "";
 			
 			// Set Angle of barcode orientation
 			Float rotAngle = 0.0f;
@@ -106,8 +106,8 @@ public class SetBarcodeImageHeightWidthQualitySettings {
 			Float leftMargin = 0.0f;
 			Float rightMargin = 0.0f;
 			
-			// Sets if checksum will be added to barcode image
-			String enableChecksum = "Yes";
+			// Set if checksum will be added to barcode image
+			String enableChecksum = "";
 			
 			//Set 3rd party cloud storage server (if any)
 			String storage = "";
@@ -115,11 +115,10 @@ public class SetBarcodeImageHeightWidthQualitySettings {
 			// Set folder location at cloud storage
 			String folder = "";
 			
-			// Set local file (if any)
 			File file = null;
 
 			// invoke Aspose.BarCode Cloud SDK API to generate image with
-			// specific height, width, and quality along with auto size option
+			// specific barcode image format
 			SaaSposeResponse apiResponse = barcodeApi.PutBarcodeGenerateFile(
 					name, text, type, format, resolutionX, resolutionY,
 					dimensionX, dimensionY, codeLocation, grUnit, autoSize,

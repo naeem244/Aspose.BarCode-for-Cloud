@@ -1,4 +1,4 @@
-package com.aspose.barcode.cloud.client.examples.generating_saving.cloudStorage;
+package com.aspose.barcode.cloud.client.examples.generatingSaving.cloudStorage;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,7 +18,7 @@ import com.aspose.storage.api.StorageApi;
  * Cloud API.
  * 
  */
-public class SetBarcodeImageResolution {
+public class SetBarcodeImageMargin {
 
 	public static void main(String[] args) {
 
@@ -31,7 +31,7 @@ public class SetBarcodeImageResolution {
 		// output folder
 		String outFolder = "c:\\temp\\";
 
-		InputStream inputStream = SetBarcodeImageResolution.class
+		InputStream inputStream = SetBarcodeImageMargin.class
 				.getClassLoader().getResourceAsStream(propFileName);
 		try {
 			if (inputStream != null) {
@@ -56,16 +56,16 @@ public class SetBarcodeImageResolution {
 
 		try {
 
-			// Instantiate Aspose.Storage Cloud API SDK
+			// Instantiate Aspose.Storage Cloud SDK
 			StorageApi storageApi = new StorageApi(apiKey, appSID, true);
 
-			// Instantiate Aspose.BarCode Cloud API SDK
+			// Instantiate Aspose.BarCode Cloud SDK
 			BarcodeApi barcodeApi = new BarcodeApi(apiKey, appSID, true);
 
-			// Set the barcode file name created on server
+			// Set the barcode file name created on server.
 			String name = "sample-barcode";
 			
-			// Set Text to encode inside barcode
+			// Set Text to encode inside barcode.
 			String text = "AsposeBarCode";
 			
 			// Set Barcode Symbology
@@ -74,9 +74,9 @@ public class SetBarcodeImageResolution {
 			// Set Generated Barcode Image Format
 			String format = "png";
 			
-			// Set Resolution along X and Y in dpi
-			Float resolutionX = 200.0f;
-			Float resolutionY = 2000.0f;
+			// Set Resolution along X and Y in dpi.
+			Float resolutionX = 0.0f;
+			Float resolutionY = 0.0f;
 			
 			//Set Width and Height of barcode unit
 			Float dimensionX = 0.0f;
@@ -88,11 +88,11 @@ public class SetBarcodeImageResolution {
 			
 			// Sets if barcode's size will be updated automatically
 			String autoSize = "true";
-			
-			// Height of the bar
+
+			// Height of the bar.
 			Float barHeight = 0.0f;
 			
-			//Set height, Width and quality of the image
+			//Set height, Width and quality of the image.
 			Float imageHeight = 0.0f;
 			Float imageWidth = 0.0f;
 			String imageQuality = "default";
@@ -101,10 +101,10 @@ public class SetBarcodeImageResolution {
 			Float rotAngle = 0.0f;
 			
 			// Set Margin of image border
-			Float topMargin = 0.0f;
-			Float bottomMargin = 0.0f;
-			Float leftMargin = 0.0f;
-			Float rightMargin = 0.0f;
+			Float topMargin = 2.0f;
+			Float bottomMargin = 2.0f;
+			Float leftMargin = 2.0f;
+			Float rightMargin = 2.0f;
 			
 			// Sets if checksum will be added to barcode image.
 			String enableChecksum = "Yes";
@@ -112,13 +112,12 @@ public class SetBarcodeImageResolution {
 			//Set 3rd party cloud storage server (if any)
 			String storage = "";
 			
-			
 			// Set folder location at cloud storage
 			String folder = "";
 			
 			File file = null;
 
-			// invoke Aspose.BarCode Cloud SDK API to generate image with specific image resolution
+			// invoke Aspose.BarCode Cloud SDK API to generate image with specific image margins
 			SaaSposeResponse apiResponse = barcodeApi.PutBarcodeGenerateFile(
 					name, text, type, format, resolutionX, resolutionY,
 					dimensionX, dimensionY, codeLocation, grUnit, autoSize,
@@ -140,7 +139,6 @@ public class SetBarcodeImageResolution {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		// ExEnd:1
 	}
 

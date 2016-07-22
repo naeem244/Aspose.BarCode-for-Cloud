@@ -1,4 +1,4 @@
-package com.aspose.barcode.cloud.client.examples.managing_recognition.cloudStorage;
+package com.aspose.barcode.cloud.client.examples.managingRecognition.cloudStorage;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.aspose.barcode.cloud.client.examples.generating_saving.cloudStorage;
+package com.aspose.barcode.cloud.client.examples.generatingSaving.cloudStorage;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,17 +8,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Properties;
-
 import com.aspose.barcode.api.BarcodeApi;
 import com.aspose.barcode.model.SaaSposeResponse;
 import com.aspose.storage.api.StorageApi;
 
 /**
- * This sample code allows you to set X and Y dimensions of a barcode using
- * Aspose BarCode Cloud API.
+ * This sample code allows you to specify code text and symbology for barcode
+ * according to specified parameters using Aspose BarCode Cloud API. 
  * 
  */
-public class SetXAndYDimensionsOfBarcode {
+public class SpecifyCodetextAndSymbologyForBarcode {
 
 	public static void main(String[] args) {
 
@@ -31,7 +30,7 @@ public class SetXAndYDimensionsOfBarcode {
 		// output folder
 		String outFolder = "c:\\temp\\";
 
-		InputStream inputStream = SetXAndYDimensionsOfBarcode.class
+		InputStream inputStream = SpecifyCodetextAndSymbologyForBarcode.class
 				.getClassLoader().getResourceAsStream(propFileName);
 		try {
 			if (inputStream != null) {
@@ -69,18 +68,18 @@ public class SetXAndYDimensionsOfBarcode {
 			String text = "AsposeBarCode";
 			
 			// Set Barcode Symbology
-			String type = "Code128";
+			String type = "Code128"; // symbology
 			
 			// Set Generated Barcode Image Format
-			String format = "png";
+			String format = "jpeg";
 			
 			// Set Resolution along X and Y in dpi
-			Float resolutionX = 1.0f;
+			Float resolutionX = 0.0f;
 			Float resolutionY = 0.0f;
 			
 			//Set Width and Height of barcode unit
-			Float dimensionX = 1.0f;
-			Float dimensionY = 0.5f;
+			Float dimensionX = 0.0f;
+			Float dimensionY = 0.0f;
 			
 			//Set Location, Measurement  of the code
 			String codeLocation = "";
@@ -89,7 +88,7 @@ public class SetXAndYDimensionsOfBarcode {
 			// Sets if barcode's size will be updated automatically
 			String autoSize = "true";
 			
-			// Height of the bar.
+			// Height of the bar
 			Float barHeight = 0.0f;
 			
 			//Set height, Width and quality of the image
@@ -99,7 +98,7 @@ public class SetXAndYDimensionsOfBarcode {
 			
 			// Set Angle of barcode orientation
 			Float rotAngle = 0.0f;
-						
+			
 			// Set Margin of image border
 			Float topMargin = 0.0f;
 			Float bottomMargin = 0.0f;
@@ -118,7 +117,7 @@ public class SetXAndYDimensionsOfBarcode {
 			File file = null;
 
 			// invoke Aspose.BarCode Cloud SDK API to generate image with
-			// specific X and Y dimensions of a barcode
+			// specify code text and symbology for barcode
 			SaaSposeResponse apiResponse = barcodeApi.PutBarcodeGenerateFile(
 					name, text, type, format, resolutionX, resolutionY,
 					dimensionX, dimensionY, codeLocation, grUnit, autoSize,
