@@ -158,7 +158,7 @@ module AsposeBarcodeCloud
       _header_accept_result = @api_client.select_header_accept(_header_accept) and header_params['Accept'] = _header_accept_result
 
       # HTTP header 'Content-Type'
-      _header_content_type = []
+      _header_content_type = ['multipart/form-data']
       header_params['Content-Type'] = @api_client.select_header_content_type(_header_content_type)
 
       # form parameters
