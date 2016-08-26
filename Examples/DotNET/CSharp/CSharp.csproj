@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{67A7DC15-1BFB-42B4-883C-E7338905FF14}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSharp</RootNamespace>
+    <AssemblyName>CSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.BarCode-Cloud">
+      <HintPath>..\packages\Aspose.BarCode-Cloud.1.0.1\lib\Aspose.BarCode-Cloud.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Storage-Cloud, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Storage-Cloud.1.0.3\lib\Aspose.Storage-Cloud.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LinqBridge, Version=1.3.0.0, Culture=neutral, PublicKeyToken=c2b14eb747628076, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqBridge.1.3.0\lib\net20\LinqBridge.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common.cs" />
+    <Compile Include="ManagingRecognition\CloudStorage\ReadBarcodeFromAsposeCloudStorage.cs" />
+    <Compile Include="GeneratingSaving\CloudStorage\GenerateBarcodewithAppropriateCodeTextLocation.cs" />
+    <Compile Include="GeneratingSaving\CloudStorage\GenerateBarcodewithChecksumOption.cs" />
+    <Compile Include="GeneratingSaving\CloudStorage\RotateBarcodeImagewithSuitableAngle.cs" />
+    <Compile Include="GeneratingSaving\CloudStorage\SetBarcodeImageHeightWidthQualitySettings.cs" />
+    <Compile Include="GeneratingSaving\CloudStorage\SetBarcodeImageMargin.cs" />
+    <Compile Include="GeneratingSaving\CloudStorage\SetBarcodeImageResolution.cs" />
+    <Compile Include="GeneratingSaving\CloudStorage\SetBarsHeightInBarcodeImage.cs" />
+    <Compile Include="GeneratingSaving\CloudStorage\SetXAndYDimensionsOfBarcode.cs" />
+    <Compile Include="GeneratingSaving\CloudStorage\SpecifyBarcodeImageSaveFormat.cs" />
+    <Compile Include="GeneratingSaving\CloudStorage\SpecifyCodetextAndSymbologyForBarcode.cs" />
+    <Compile Include="GeneratingSaving\WithoutCloudStorage\GenerateBarcodeAndGetImageAsStream.cs" />
+    <Compile Include="GeneratingSaving\WithoutCloudStorage\GenerateBarcodeAndSaveImageToLocalDisk.cs" />
+    <Compile Include="ManagingRecognition\CloudStorage\ReadBarcodeFromSpecificRegionOfImage.cs" />
+    <Compile Include="ManagingRecognition\CloudStorage\RecognizeSpecifiedcountOfBarcodes.cs" />
+    <Compile Include="ManagingRecognition\WithoutCloudStorage\ReadBarcodeFromExternalImageURL.cs" />
+    <Compile Include="ManagingRecognition\WithoutCloudStorage\ReadBarcodeFromLocalFile.cs" />
+    <Compile Include="ManagingRecognition\WithoutCloudStorage\ReadBarcodesbyApplyingImageProcessingAlgorithm.cs" />
+    <Compile Include="ManagingRecognition\WithoutCloudStorage\ReadBarcodesWithChecksum.cs" />
+    <Compile Include="RunExamples.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GeneratingSaving\CloudStorage\CreateBarcodeAndSaveAsposeCloudStorage.cs" />
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
