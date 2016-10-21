@@ -1,10 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsposeBarcode", "AsposeBarcode.csproj", "{C1F14D71-4F52-4999-B7C8-7C092F8F8174}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeTest", "BarcodeTest\BarcodeTest.csproj", "{91E879CD-C1CC-4153-941B-F1D46992B3EA}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC39CDC-A239-403B-B1BD-CFBEB477EE3E}"
 	ProjectSection(SolutionItems) = preProject
 		AsposeBarcode.vsmdi = AsposeBarcode.vsmdi
@@ -12,10 +8,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsposeBarcode", "AsposeBarcode.csproj", "{C1F14D71-4F52-4999-B7C8-7C092F8F8174}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeTest", "BarcodeTest\BarcodeTest.csproj", "{91E879CD-C1CC-4153-941B-F1D46992B3EA}"
+EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = AsposeBarcode.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms

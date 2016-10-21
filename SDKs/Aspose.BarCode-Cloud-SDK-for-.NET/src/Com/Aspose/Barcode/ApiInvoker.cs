@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.IO;
 using System.Net;
@@ -76,7 +75,7 @@ namespace Com.Aspose.Barcode
         {
             try
             {
-                return new ResponseMessage(BinaryData);
+                return new ResponseMessage(BinaryData, 200, "Ok");
             }
             catch (IOException e)
             {
@@ -133,7 +132,7 @@ namespace Com.Aspose.Barcode
           return invokeAPIInternal(host, path, method, true, queryParams, body, headerParams, formParams) as byte[];
       }
 
-      public static void CopyTo(Stream source, Stream destination, int bufferSize = 81920)
+      public static void CopyTo(Stream source, Stream destination, int bufferSize)
       {
           byte[] array = new byte[bufferSize];
           int count;
@@ -189,9 +188,12 @@ namespace Com.Aspose.Barcode
           {
               client.Headers.Add(headerParamsItem.Key, headerParamsItem.Value);
           }
-          foreach (var defaultHeaderMapItem in defaultHeaderMap.Where(defaultHeaderMapItem => !headerParams.ContainsKey(defaultHeaderMapItem.Key)))
+          foreach (var defaultHeaderMapItem in defaultHeaderMap)
           {
-              client.Headers.Add(defaultHeaderMapItem.Key, defaultHeaderMapItem.Value);
+              if (!headerParams.ContainsKey(defaultHeaderMapItem.Key))
+              {
+                  client.Headers.Add(defaultHeaderMapItem.Key, defaultHeaderMapItem.Value);
+              }
           }
 
           switch (method)
@@ -232,7 +234,7 @@ namespace Com.Aspose.Barcode
               {
                   using (var memoryStream = new MemoryStream())
                   {
-                      CopyTo(webResponse.GetResponseStream(), memoryStream);
+                      CopyTo(webResponse.GetResponseStream(), memoryStream, 81920);
                       return memoryStream.ToArray();
                   }
               }
