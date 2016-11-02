@@ -15,8 +15,8 @@ namespace BarcodeTest
     [TestClass()]
     public class TestBarcodeApi
     {
-        protected string APIKEY = "xxxxxx";
-        protected string APPSID = "xxxxxx";
+        protected string APIKEY = "xxxx";
+        protected string APPSID = "xxxx";
         protected string BASEPATH = "http://api.aspose.com/v1.1";
 
         private TestContext testContextInstance;
@@ -102,7 +102,7 @@ namespace BarcodeTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
 
 
-            string name = "barcodePng.png";
+            string name = "Signature.png";
             string type = "";
             string checksumValidation = "";
             bool? stripFnc = null;
@@ -123,28 +123,7 @@ namespace BarcodeTest
             Assert.AreEqual("200", actual.Code);
             Assert.IsInstanceOfType(new BarcodeResponseList(), actual.GetType()); 
         }
-
-        /// <summary>
-        ///A test for PostBarcodeRecognizeFromUrlorContent
-        ///</summary>
-        [TestMethod()]
-        public void TestPostBarcodeRecognizeFromUrlorContent()
-        {
-            BarcodeApi target = new BarcodeApi(APIKEY, APPSID, BASEPATH);
-            
-            string type = "gif";
-            string checksumValidation = "";
-            bool? stripFnc = false;
-            int? rotationAngle = null;
-            string url = "http://www.barcoding.com/images/Barcodes/code93.gif";
-            byte[] file = null;
-            
-            BarcodeResponseList actual;
-            actual = target.PostBarcodeRecognizeFromUrlorContent(type, checksumValidation, stripFnc, rotationAngle, url, file);
-            Assert.AreEqual("200", actual.Code);
-            Assert.IsInstanceOfType(new BarcodeResponseList(), actual.GetType()); 
-        }
-
+        
         /// <summary>
         ///A test for PostGenerateMultiple
         ///</summary>
@@ -223,7 +202,7 @@ namespace BarcodeTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
 
 
-            string name = "barcodePng.png";
+            string name = "Signature.png";
             string type = "";
             string folder = "";
             BarcodeReader body = new BarcodeReader();
@@ -245,9 +224,9 @@ namespace BarcodeTest
         public void TestPutGenerateMultiple()
         {
             BarcodeApi target = new BarcodeApi(APIKEY, APPSID, BASEPATH);
-            
 
-            string name = "barcodePng.png";
+
+            string name = "Signature.png";
             string format = "";
             string folder = "";
             BarcodeBuilders body = new BarcodeBuilders();
@@ -266,6 +245,28 @@ namespace BarcodeTest
             actual = target.PutGenerateMultiple(name, format, folder, body);
             Assert.AreEqual("200", actual.Code);
             Assert.IsInstanceOfType(new SaaSposeResponse(), actual.GetType()); 
+        }
+
+        /// <summary>
+        ///A test for PostBarcodeRecognizeFromUrlorContent
+        ///</summary>
+        [TestMethod()]
+        public void TestPostBarcodeRecognizeFromUrlorContent()
+        {
+            BarcodeApi target = new BarcodeApi(APIKEY, APPSID, BASEPATH);
+
+            string type = "gif";
+            string checksumValidation = "";
+            bool? stripFnc = false;
+            int? rotationAngle = null;
+            // Please set valid path, otherwise you will face bad request error.
+            string url = "http://www.barcoding.com/images/Barcodes/code93.gif";
+            byte[] file = null;
+
+            BarcodeResponseList actual;
+            actual = target.PostBarcodeRecognizeFromUrlorContent(type, checksumValidation, stripFnc, rotationAngle, url, file);
+            Assert.AreEqual("200", actual.Code);
+            Assert.IsInstanceOfType(new BarcodeResponseList(), actual.GetType());
         }
     }
 }
